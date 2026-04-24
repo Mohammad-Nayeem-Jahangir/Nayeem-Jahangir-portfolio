@@ -1,0 +1,1498 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohammad Nayeem Jahangir | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+  --bg: #f5f3ef;
+  --surface: #ffffff;
+  --surface2: #faf9f7;
+  --border: #e4e0d8;
+  --accent: #1a3a5c;
+  --accent2: #c8893a;
+  --accent3: #2d6a4f;
+  --text: #1c1c1e;
+  --text2: #5a5a60;
+  --text3: #9a9a9f;
+  --sidebar-w: 260px;
+  --shadow: 0 4px 24px rgba(26,58,92,0.08);
+  --shadow-lg: 0 12px 48px rgba(26,58,92,0.13);
+  --radius: 14px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ===== SIDEBAR ===== */
+#sidebar {
+  position: fixed;
+  top: 0; left: 0;
+  width: var(--sidebar-w);
+  height: 100vh;
+  background: var(--accent);
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  transition: transform 0.35s cubic-bezier(.77,0,.175,1);
+  box-shadow: 4px 0 32px rgba(26,58,92,0.18);
+}
+
+#sidebar .sb-logo {
+  padding: 36px 28px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+#sidebar .sb-logo h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.3;
+}
+#sidebar .sb-logo span {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+#sidebar nav {
+  padding: 24px 0;
+  flex: 1;
+  overflow-y: auto;
+}
+#sidebar nav a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 28px;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: all 0.22s;
+  position: relative;
+  border-left: 3px solid transparent;
+}
+#sidebar nav a i {
+  width: 18px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+#sidebar nav a:hover, #sidebar nav a.active {
+  color: #fff;
+  background: rgba(255,255,255,0.08);
+  border-left-color: var(--accent2);
+}
+#sidebar nav a.active { font-weight: 600; }
+
+#sidebar .sb-social {
+  padding: 20px 28px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  gap: 14px;
+}
+#sidebar .sb-social a {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.1);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.75);
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+#sidebar .sb-social a:hover {
+  background: var(--accent2);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ===== TOGGLE BUTTON ===== */
+#menu-toggle {
+  display: none;
+  position: fixed;
+  top: 18px; left: 18px;
+  z-index: 1100;
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  background: var(--accent);
+  border: none;
+  cursor: pointer;
+  align-items: center; justify-content: center;
+  flex-direction: column; gap: 5px;
+  box-shadow: var(--shadow);
+}
+#menu-toggle span {
+  display: block;
+  width: 18px; height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+/* ===== MAIN CONTENT ===== */
+#main {
+  margin-left: var(--sidebar-w);
+  min-height: 100vh;
+}
+
+/* ===== SECTIONS ===== */
+.section {
+  padding: 80px 60px;
+  min-height: 100vh;
+  border-bottom: 1px solid var(--border);
+}
+.section:last-child { border-bottom: none; }
+
+.section-label {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent2);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 42px;
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1.15;
+  margin-bottom: 48px;
+}
+
+/* ===== HERO ===== */
+#home {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0ede6 0%, #e8f0f7 50%, #f5f3ef 100%);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231a3a5c' fill-opacity='0.03'%3E%3Cpath d='M0 0h40v40H0V0zm40 40h40v40H40V40zm0-40h2l-2 2V0zm0 4l4-4h2l-6 6V4zm0 4l8-8h2L40 10V8zm0 4L52 0h2L40 14v-2zm0 4L56 0h2L40 18v-2zm0 4L60 0h2L40 22v-2zm0 4L64 0h2L40 26v-2zm0 4L68 0h2L40 30v-2zm0 4L72 0h2L40 34v-2zm0 4L76 0h2l-2 2-34 34v-2zm4 4L80 0h2L44 42l-2-2zm4 0L80 4v2L46 42l-2-2zm4 0L80 8v2L50 42l-2-2zm4 0L80 12v2L54 42l-2-2zm4 0L80 16v2L58 42l-2-2zm4 0L80 20v2L62 42l-2-2zm4 0L80 24v2L66 42l-2-2zm4 0L80 28v2L70 42l-2-2zm4 0L80 32v2L74 42l-2-2zm4 0L80 36v2L78 42l-2-2zm4 0L80 40v2l-2-2zm-2 2L80 42v2l-4-4zm0 4L80 46v2l-8-8zm0 4L80 50v2l-12-12zm0 4L80 54v2L56 44l2-2zm0 4L80 58v2L52 48l2-2zm0 4L80 62v2L48 52l2-2zm0 4L80 66v2L44 56l2-2zm0 4L80 70v2L40 60l2-2zm0 4L80 74v2L36 64l2-2zm0 4L80 78v2L32 68l2-2zm0 4l4 4L80 80l-28-28 2-2zm-4 4l4 4L80 80H68L36 76l2-2zm-4 4l4 4 8 8H52L32 80l2-2zm-4 4l4 4 4 4H36L28 84v-4zm-4 4l4 4H16L24 88v-4zm-4 4l4 4H0L20 92v-4zM0 20l4-4v2L2 20H0zm0 4l8-8v2L2 24H0zm0 4l12-12v2L2 28H0zm0 4l16-16v2L2 32H0zm0 4L20 8v2L2 36H0zm0 4L24 4v2L2 40H0zm0 4L28 0v2L2 44H0zm4 4L32 0h2L4 48l-2-2zm4 0L36 0h2L8 48l-2-2zm4 0L40 0h2L12 48l-2-2zm4 0L44 0h2L16 48l-2-2zm4 0L48 0h2L20 48l-2-2zm4 0L52 0h2L24 48l-2-2zm4 0L56 0h2L28 48l-2-2zm4 0L60 0h2L32 48l-2-2zm4 0L64 0h2L36 48l-2-2zm4 0L68 0h2L40 48l-2-2zm4 0L72 0h2L44 48l-2-2zm4 0L76 0h2L48 48l-2-2zm4 0L80 0h2L52 48l-2-2zm4 0L80 4v2L54 50l-2-2zm4 0L80 8v2L58 50l-2-2zm4 0L80 12v2L62 50l-2-2zm4 0L80 16v2L66 50l-2-2zm4 0L80 20v2L70 50l-2-2zm4 0L80 24v2L74 50l-2-2zm4 0L80 28v2L78 50l-2-2zm4 0L80 32v2l-2 2-2-2zm0 4L80 36v2l-6 6-2-2zm0 4L80 40v2l-10 10-2-2zm0 4L80 44v2l-14 14-2-2zm0 4L80 48v2L58 66l-2-2zm0 4L80 52v2L54 70l-2-2zm0 4L80 56v2L50 74l-2-2zm0 4L80 60v2L46 78l-2-2zm0 4L80 64v2L42 82l-2-2zm0 4L80 68v2L38 86l-2-2zm0 4L80 72v2L34 90l-2-2zm0 4L80 76v2L30 94l-2-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  padding: 80px 60px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.hero-top {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  margin-bottom: 64px;
+}
+
+.hero-photo {
+  width: 160px; height: 160px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 5px solid #fff;
+  box-shadow: 0 8px 40px rgba(26,58,92,0.2);
+  background: var(--border);
+}
+.hero-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.hero-text h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+.hero-text .hero-role {
+  font-size: 14px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--accent2);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.hero-text p {
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: var(--text2);
+  max-width: 680px;
+}
+
+/* Stats */
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.stat-card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+}
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.stat-label {
+  font-size: 12px;
+  color: var(--text3);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* ===== ABOUT ===== */
+#about { background: var(--surface); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+.about-text p {
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: var(--text2);
+  margin-bottom: 20px;
+}
+.about-info-list {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.about-info-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 14px;
+}
+.about-info-row strong { color: var(--accent); min-width: 90px; font-weight: 600; }
+.about-info-row span { color: var(--text2); }
+
+/* Skills */
+.skills-section { margin-top: 0; }
+.skills-section h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  color: var(--accent);
+  margin-bottom: 28px;
+  font-weight: 600;
+}
+.skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.skill-tag {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text);
+  transition: all 0.2s;
+}
+.skill-tag:hover {
+  border-color: var(--accent);
+  background: #eef3f8;
+  transform: translateX(3px);
+}
+.skill-tag i {
+  color: var(--accent2);
+  font-size: 15px;
+  width: 18px;
+}
+
+/* ===== ACADEMIC ===== */
+#academics { background: var(--bg); }
+.timeline { position: relative; padding-left: 32px; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 8px; bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent), var(--accent2));
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 48px;
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+.timeline-dot {
+  position: absolute;
+  left: -42px; top: 28px;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 4px solid var(--bg);
+  box-shadow: 0 0 0 2px var(--accent);
+}
+.timeline-date {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent2);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.timeline-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.timeline-sub {
+  font-size: 13.5px;
+  color: var(--text2);
+  margin-bottom: 12px;
+}
+.timeline-body {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.7;
+}
+.timeline-badge {
+  display: inline-block;
+  background: #e8f0f7;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-right: 6px;
+}
+.timeline-badge.gold {
+  background: #fdf3e3;
+  color: var(--accent2);
+}
+
+/* ===== RESEARCH ===== */
+#research { background: var(--surface); }
+.pub-list { display: flex; flex-direction: column; gap: 24px; }
+.pub-card {
+  background: var(--bg);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  border: 1px solid var(--border);
+  transition: all 0.22s;
+  position: relative;
+  overflow: hidden;
+}
+.pub-card::after {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: var(--accent);
+}
+.pub-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateX(4px);
+  border-color: var(--accent);
+}
+.pub-year {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent2);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.pub-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.pub-meta { font-size: 13px; color: var(--text3); margin-bottom: 10px; }
+.pub-desc { font-size: 14px; color: var(--text2); line-height: 1.7; margin-bottom: 12px; }
+.pub-doi {
+  font-size: 13px;
+  color: var(--accent);
+  text-decoration: none;
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.pub-doi:hover { text-decoration: underline; }
+
+/* ===== EXPERIENCE ===== */
+#experience { background: var(--bg); }
+.exp-card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 32px 36px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  margin-bottom: 24px;
+}
+.exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 6px;
+}
+.exp-role {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--accent);
+}
+.exp-date {
+  font-size: 12px;
+  color: var(--accent2);
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: #fdf3e3;
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+.exp-company {
+  font-size: 14px;
+  color: var(--text2);
+  margin-bottom: 18px;
+}
+.exp-list { list-style: none; }
+.exp-list li {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.7;
+  padding: 6px 0 6px 22px;
+  position: relative;
+  border-bottom: 1px solid var(--border);
+}
+.exp-list li:last-child { border-bottom: none; }
+.exp-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--accent2);
+  font-size: 12px;
+  top: 8px;
+}
+
+/* ===== GALLERY ===== */
+#gallery { background: var(--surface); }
+.gallery-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+.filter-btn {
+  padding: 8px 20px;
+  border: 1.5px solid var(--border);
+  background: transparent;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text2);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'DM Sans', sans-serif;
+}
+.filter-btn:hover, .filter-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.gallery-item {
+  background: var(--bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: all 0.22s;
+  cursor: pointer;
+}
+.gallery-item:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+.gallery-thumb {
+  height: 160px;
+  background: linear-gradient(135deg, var(--accent) 0%, #2d5a8e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  color: rgba(255,255,255,0.7);
+  position: relative;
+  overflow: hidden;
+}
+.gallery-thumb .cert-icon {
+  font-size: 48px;
+  color: rgba(255,255,255,0.3);
+}
+.gallery-thumb .cert-year {
+  position: absolute;
+  bottom: 12px;
+  right: 14px;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: rgba(255,255,255,0.6);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.gallery-thumb .cert-badge {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  border: 2px solid rgba(255,255,255,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+  color: rgba(255,255,255,0.9);
+}
+
+/* Different thumb colors */
+.gt-excel { background: linear-gradient(135deg, #1d6f42, #2ecc71); }
+.gt-python { background: linear-gradient(135deg, #306998, #4db6ac); }
+.gt-powerbi { background: linear-gradient(135deg, #f2c811, #e67e22); }
+.gt-ml { background: linear-gradient(135deg, #6c3483, #9b59b6); }
+.gt-tableau { background: linear-gradient(135deg, #1f4e79, #2980b9); }
+.gt-academics { background: linear-gradient(135deg, #1a3a5c, #34495e); }
+.gt-other { background: linear-gradient(135deg, #7f8c8d, #95a5a6); }
+.gt-sql { background: linear-gradient(135deg, #c0392b, #e74c3c); }
+.gt-hipaa { background: linear-gradient(135deg, #16a085, #1abc9c); }
+
+.gallery-info { padding: 16px; }
+.gallery-info h4 { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.gallery-info p { font-size: 12px; color: var(--text3); }
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.88);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+.lightbox.open { display: flex; }
+.lightbox-content {
+  background: #fff;
+  border-radius: 20px;
+  max-width: 560px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  animation: fadeIn 0.25s ease;
+}
+.lb-header {
+  padding: 32px 32px 24px;
+  background: var(--accent);
+  color: #fff;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.lb-header h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+}
+.lb-header p {
+  font-size: 13px;
+  opacity: 0.7;
+  margin-top: 4px;
+}
+.lb-close {
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: #fff;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.lb-body { padding: 28px 32px; display: flex; gap: 24px; align-items: flex-start; }
+.lb-icon-big {
+  width: 80px; height: 80px;
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 32px;
+  color: #fff;
+  flex-shrink: 0;
+}
+.lb-text h4 { font-size: 14px; font-weight: 600; color: var(--accent); margin-bottom: 8px; }
+.lb-text p { font-size: 13.5px; color: var(--text2); line-height: 1.7; }
+
+/* ===== PROJECTS ===== */
+#projects { background: var(--bg); }
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.proj-card {
+  background: #fff;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  transition: all 0.25s;
+  display: flex;
+  flex-direction: column;
+}
+.proj-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-6px);
+}
+.proj-banner {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  color: rgba(255,255,255,0.8);
+  position: relative;
+  overflow: hidden;
+}
+.proj-banner .proj-tag {
+  position: absolute;
+  top: 12px; right: 12px;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+.pb-ml { background: linear-gradient(135deg, #1a3a5c 0%, #2d6a8f 100%); }
+.pb-healthcare { background: linear-gradient(135deg, #1a5c3a 0%, #2d8f6a 100%); }
+.pb-titanic { background: linear-gradient(135deg, #5c1a1a 0%, #8f2d2d 100%); }
+.pb-r { background: linear-gradient(135deg, #4a1a5c 0%, #7a2d8f 100%); }
+.pb-tableau { background: linear-gradient(135deg, #1a3a5c 0%, #c8893a 100%); }
+.pb-netflix { background: linear-gradient(135deg, #8b0000 0%, #c0392b 100%); }
+.pb-excel { background: linear-gradient(135deg, #1d6f42 0%, #2ecc71 100%); }
+
+.proj-body { padding: 20px 22px; flex: 1; display: flex; flex-direction: column; }
+.proj-body h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.proj-body p { font-size: 13px; color: var(--text2); line-height: 1.65; flex: 1; }
+.proj-footer {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.proj-tool {
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--accent2);
+  font-weight: 600;
+}
+.proj-link {
+  width: 34px; height: 34px;
+  border-radius: 8px;
+  background: var(--bg);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 15px;
+  transition: all 0.2s;
+  border: 1px solid var(--border);
+}
+.proj-link:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* ===== ACHIEVEMENTS ===== */
+#achievements { background: var(--surface); }
+.ach-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.ach-card {
+  background: var(--bg);
+  border-radius: var(--radius);
+  padding: 28px 28px;
+  border: 1px solid var(--border);
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  transition: all 0.22s;
+}
+.ach-card:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent);
+  background: #fff;
+}
+.ach-icon {
+  width: 52px; height: 52px;
+  border-radius: 12px;
+  background: var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.ach-icon.gold { background: var(--accent2); }
+.ach-icon.green { background: var(--accent3); }
+.ach-text h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.ach-text .ach-org {
+  font-size: 12px;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.ach-text p { font-size: 13.5px; color: var(--text2); line-height: 1.6; }
+
+/* ===== CONTACT ===== */
+#contact { background: var(--bg); min-height: auto; padding-bottom: 80px; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.contact-card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.22s;
+}
+.contact-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+.contact-icon {
+  width: 56px; height: 56px;
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.ci-green { background: #e8f5e9; color: #25d366; }
+.ci-red { background: #fde8e8; color: #ea4335; }
+.ci-blue { background: #e8f0fb; color: #0a66c2; }
+.ci-dark { background: #f0f0f0; color: #24292f; }
+.contact-info h4 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+.contact-info p { font-size: 13px; color: var(--text3); }
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--accent);
+  color: rgba(255,255,255,0.6);
+  text-align: center;
+  padding: 24px;
+  font-size: 13px;
+  margin-left: 0;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn { from { opacity:0; transform: translateY(12px); } to { opacity:1; transform:none; } }
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  :root { --sidebar-w: 220px; }
+  .section { padding: 60px 40px; }
+  .hero-inner { padding: 60px 40px; }
+  .hero-stats { grid-template-columns: repeat(2, 1fr); }
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  #sidebar {
+    transform: translateX(-100%);
+  }
+  #sidebar.open {
+    transform: none;
+  }
+  #menu-toggle { display: flex; }
+  #main { margin-left: 0; }
+  .section { padding: 50px 24px; }
+  .hero-inner { padding: 70px 24px 40px; }
+  .hero-top { flex-direction: column; text-align: center; }
+  .hero-text h1 { font-size: 36px; }
+  .hero-stats { grid-template-columns: repeat(2, 1fr); }
+  .about-grid { grid-template-columns: 1fr; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .ach-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .section-title { font-size: 32px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Mobile Toggle -->
+<button id="menu-toggle" onclick="toggleSidebar()" aria-label="Toggle menu">
+  <span></span><span></span><span></span>
+</button>
+
+<!-- Sidebar -->
+<aside id="sidebar">
+  <div class="sb-logo">
+    <h2>Mohammad Nayeem<br>Jahangir</h2>
+    <span>Engineer &amp; Researcher</span>
+  </div>
+  <nav>
+    <a href="#home" class="active" onclick="setActive(this)"><i class="fa fa-house"></i> Home</a>
+    <a href="#about" onclick="setActive(this)"><i class="fa fa-user"></i> About</a>
+    <a href="#academics" onclick="setActive(this)"><i class="fa fa-graduation-cap"></i> Academic Background</a>
+    <a href="#research" onclick="setActive(this)"><i class="fa fa-microscope"></i> Research & Publications</a>
+    <a href="#experience" onclick="setActive(this)"><i class="fa fa-briefcase"></i> Professional Experience</a>
+    <a href="#gallery" onclick="setActive(this)"><i class="fa fa-certificate"></i> Learning Gallery</a>
+    <a href="#projects" onclick="setActive(this)"><i class="fa fa-code"></i> Projects</a>
+    <a href="#achievements" onclick="setActive(this)"><i class="fa fa-trophy"></i> Achievements</a>
+    <a href="#contact" onclick="setActive(this)"><i class="fa fa-envelope"></i> Contact</a>
+  </nav>
+  <div class="sb-social">
+    <a href="https://wa.me/8801706419736" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <a href="mailto:nayeemjahangir55@gmail.com" title="Gmail"><i class="fab fa-google"></i></a>
+    <a href="https://www.linkedin.com/in/mohammad-nayeem-jahangir/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://github.com/Mohammad-Nayeem-Jahangir" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+  </div>
+</aside>
+
+<!-- Main Content -->
+<main id="main">
+
+  <!-- HOME -->
+  <section id="home" class="section">
+    <div class="hero-bg"></div>
+    <div class="hero-inner">
+      <div class="hero-top fade-in">
+        <div class="hero-photo">
+          <img src="1777010708414_image.png" alt="Mohammad Nayeem Jahangir" onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:var(--accent);color:rgba(255,255,255,0.6);font-size:48px;\'><i class=\'fa fa-user\'></i></div>'">
+        </div>
+        <div class="hero-text">
+          <div class="hero-role">EEE Engineer · Data Scientist · Researcher</div>
+          <h1>Mohammad Nayeem<br>Jahangir</h1>
+          <p>A multidisciplinary engineer and researcher with a B.Sc. in Electrical &amp; Electronics Engineering (CGPA 3.65/4.00) and a Postgraduate Diploma in Data Science &amp; Business Analytics. Co-author of <strong>4 published research works</strong> including two Wiley book chapters on smart grid forecasting. Combines 3+ years of professional experience in healthcare data operations with deep expertise in machine learning, energy systems, and analytical decision-making. Aspiring to advance sustainable energy research at international level.</p>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-card fade-in" style="transition-delay:0.1s">
+          <div class="stat-num">4+</div>
+          <div class="stat-label">Research Publications</div>
+        </div>
+        <div class="stat-card fade-in" style="transition-delay:0.2s">
+          <div class="stat-num">3+</div>
+          <div class="stat-label">Years Professional XP</div>
+        </div>
+        <div class="stat-card fade-in" style="transition-delay:0.3s">
+          <div class="stat-num">20+</div>
+          <div class="stat-label">Certifications Earned</div>
+        </div>
+        <div class="stat-card fade-in" style="transition-delay:0.4s">
+          <div class="stat-num">3.65</div>
+          <div class="stat-label">Bachelor CGPA / 4.00</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="section-label">Who I Am</div>
+    <div class="section-title">About Me</div>
+    <div class="about-grid fade-in">
+      <div class="about-text">
+        <p>I am Mohammad Nayeem Jahangir, an Electrical and Electronics Engineer turned Data Scientist and researcher with a passion for sustainable energy systems and applied machine learning. My academic journey was enriched by the prestigious <strong>HUMAP Exchange Scholarship</strong> at the University of Hyogo, Japan, and my research spans from solar radiation forecasting using deep neural networks to electricity demand prediction for smart grids.</p>
+        <p>My Postgraduate Diploma in Data Science and Business Analytics bridges the gap between engineering fundamentals and modern data-driven approaches, allowing me to tackle complex real-world problems with analytical rigor. I have co-authored publications in Wiley's <em>Forecasting in Smart Grids</em> and contributed to renewable energy research with international collaborators.</p>
+        <p>Professionally, I have applied data analytics in healthcare operations, validating 1,100+ payments, managing credentials for 550+ healthcare professionals, and producing executive dashboards that drove operational decisions.</p>
+        <div class="about-info-list">
+          <div class="about-info-row"><strong>Location</strong><span>Singair, Manikganj, Bangladesh</span></div>
+          <div class="about-info-row"><strong>Email</strong><span>nayeemjahangir55@gmail.com</span></div>
+          <div class="about-info-row"><strong>Phone</strong><span>(+880) 1706419736</span></div>
+          <div class="about-info-row"><strong>Language</strong><span>English (IELTS 6.5) · Bangla (Native)</span></div>
+        </div>
+      </div>
+      <div class="skills-section">
+        <h3>Technical Skills</h3>
+        <div class="skills-grid">
+          <div class="skill-tag"><i class="fab fa-python"></i> Python</div>
+          <div class="skill-tag"><i class="fa fa-chart-bar"></i> R Programming</div>
+          <div class="skill-tag"><i class="fa fa-database"></i> SQL</div>
+          <div class="skill-tag"><i class="fa fa-chart-line"></i> Machine Learning</div>
+          <div class="skill-tag"><i class="fa fa-brain"></i> Deep Learning</div>
+          <div class="skill-tag"><i class="fa fa-table"></i> MS Excel (Advanced)</div>
+          <div class="skill-tag"><i class="fa fa-bolt"></i> MATLAB / SIMULINK</div>
+          <div class="skill-tag"><i class="fa fa-microchip"></i> PSpice / Proteus</div>
+          <div class="skill-tag"><i class="fa fa-chart-pie"></i> Power BI</div>
+          <div class="skill-tag"><i class="fa fa-eye"></i> Tableau</div>
+          <div class="skill-tag"><i class="fa fa-magnifying-glass-chart"></i> EDA & Data Wrangling</div>
+          <div class="skill-tag"><i class="fa fa-chart-area"></i> Time-Series Forecasting</div>
+          <div class="skill-tag"><i class="fa fa-file-powerpoint"></i> MS PowerPoint</div>
+          <div class="skill-tag"><i class="fa fa-people-group"></i> MS Teams</div>
+        </div>
+        <div style="margin-top:28px;">
+          <h3 style="font-size:20px;margin-bottom:14px;">Research Interests</h3>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <span class="timeline-badge">Energy Conversion &amp; Grid Integration</span>
+            <span class="timeline-badge">Smart Energy Systems</span>
+            <span class="timeline-badge">Wave Energy</span>
+            <span class="timeline-badge">Offshore Energy</span>
+            <span class="timeline-badge gold">Applied Machine Learning</span>
+            <span class="timeline-badge gold">Big Data Analytics</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACADEMICS -->
+  <section id="academics" class="section">
+    <div class="section-label">Education</div>
+    <div class="section-title">Academic Background</div>
+    <div class="timeline fade-in">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">March 2024 – February 2025</div>
+        <div class="timeline-title">Post-Graduate Diploma — Data Science &amp; Business Analytics</div>
+        <div class="timeline-sub">Academy of Business Professionals, Dhaka, Bangladesh</div>
+        <div class="timeline-body">Comprehensive training in Data Exploration, Data Modeling, Machine Learning, MLOps, Model Validation, and Analytics. Developed hands-on expertise in Python, R, and industry-standard analytical tools.</div>
+        <span class="timeline-badge">Data Science</span>
+        <span class="timeline-badge">Machine Learning</span>
+        <span class="timeline-badge">MLOps</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">October – November 2024</div>
+        <div class="timeline-title">Professional Certification — Python &amp; R for Data Analysis</div>
+        <div class="timeline-sub">Academy of Business Professionals, Dhaka, Bangladesh</div>
+        <div class="timeline-body">Focused on Python programming fundamentals, key libraries (NumPy, Pandas, Scikit-learn), data manipulation, visualization, and R-based analytics for applied data science workflows.</div>
+        <span class="timeline-badge">Python</span>
+        <span class="timeline-badge">R Analytics</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">January 2016 – June 2020</div>
+        <div class="timeline-title">B.Sc. — Electrical and Electronics Engineering</div>
+        <div class="timeline-sub">International University of Business Agriculture and Technology (IUBAT), Dhaka, Bangladesh · CGPA: 3.65 / 4.00</div>
+        <div class="timeline-body">Strong foundation in Electric Circuit Analysis, Power Systems, Electronics Design, Digital Logic Design, and Advanced Mathematics. Completed bachelor's thesis on BIPV systems under partial shading conditions. Recipient of the HUMAP Exchange Scholarship at University of Hyogo, Japan (2019).</div>
+        <span class="timeline-badge gold">CGPA: 3.65 / 4.00</span>
+        <span class="timeline-badge">Power Systems</span>
+        <span class="timeline-badge">Electronics Design</span>
+        <span class="timeline-badge gold">HUMAP Scholar – Japan</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section id="research" class="section">
+    <div class="section-label">Academic Contributions</div>
+    <div class="section-title">Research &amp; Publications</div>
+    <div class="pub-list fade-in">
+      <div class="pub-card">
+        <div class="pub-year">2026 — Under Research</div>
+        <div class="pub-title">National Electricity Sector Scenario of Bangladesh: Current Status, Future Alternatives, and Barriers to Low-Carbon Sources</div>
+        <div class="pub-meta">Authors: Nahid, F. A.; Jahangir, M. N. &nbsp;·&nbsp; Status: Under Research</div>
+        <div class="pub-desc">Ongoing investigation into Bangladesh's energy transition pathways, examining current electricity sector conditions, evaluating low-carbon alternatives, and identifying structural barriers to adoption of sustainable energy sources.</div>
+      </div>
+      <div class="pub-card">
+        <div class="pub-year">2025 — Wiley</div>
+        <div class="pub-title">Machine Learning Techniques for Demand Forecasting in the Electricity Sector</div>
+        <div class="pub-meta">Authors: Nahid, F. A.; Chowdhury, H. M.; Jahangir, M. N. &nbsp;·&nbsp; <em>Forecasting in Smart Grids</em>, pp. 131–172</div>
+        <div class="pub-desc">Reviews ML approaches for electricity demand forecasting critical to smart grid operation. Evaluates time-series models, regression, ensemble learning, deep learning, and hybrid algorithms including a case study using ConvLSTM on Thailand's metropolitan electricity data. ML techniques show higher accuracy and adaptability over traditional methods.</div>
+        <a class="pub-doi" href="https://doi.org/10.1002/9781394249466.ch6" target="_blank"><i class="fa fa-arrow-up-right-from-square"></i> DOI: 10.1002/9781394249466.ch6</a>
+      </div>
+      <div class="pub-card">
+        <div class="pub-year">2025 — Wiley</div>
+        <div class="pub-title">Evaluation and Performance Metrics for Forecasting Renewable Power Generation, Demand, and Electricity Price</div>
+        <div class="pub-meta">Authors: Nahid, F. A.; Jahangir, M. N.; Chowdhury, H. M.; Akter, K. &nbsp;·&nbsp; <em>Forecasting in Smart Grids</em>, pp. 173–218</div>
+        <div class="pub-desc">Addresses the lack of standardized evaluation metrics for renewable energy forecasting. Provides comprehensive review of statistical metrics (MAE, RMSE) and domain-specific measures, examining their applicability, reliability, and interpretability to support better decision-making in renewable energy systems.</div>
+        <a class="pub-doi" href="https://doi.org/10.1002/9781394249466.ch7" target="_blank"><i class="fa fa-arrow-up-right-from-square"></i> DOI: 10.1002/9781394249466.ch7</a>
+      </div>
+      <div class="pub-card">
+        <div class="pub-year">2023 — University of Malaya</div>
+        <div class="pub-title">Partial Shading Effect on Power Generation of BIPV System in Bangladesh</div>
+        <div class="pub-meta">Authors: Jahangir, M. N.; Mia, Md. S.; Chowdhury, S. &nbsp;·&nbsp; <em>Int. Journal of Renewable Energy Resources</em>, 13(2), pp. 49–57</div>
+        <div class="pub-desc">Experimental and simulation study investigating partial shading impacts on building-integrated PV systems in Bangladesh. Using paper coverage (~50% shading) and MATLAB simulations, found that avoiding partial shading can increase power output by up to 41%. Key factors identified include irradiance, temperature, and ideality factor.</div>
+        <a class="pub-doi" href="https://doi.org/10.22452/ijrer.vol13no2.2" target="_blank"><i class="fa fa-arrow-up-right-from-square"></i> DOI: 10.22452/ijrer.vol13no2.2</a>
+      </div>
+      <div class="pub-card">
+        <div class="pub-year">2019 — MANTECH Publications</div>
+        <div class="pub-title">Solar Radiation Forecasting Using Hybrid Convolutional Long Short-Term Memory Neural Network</div>
+        <div class="pub-meta">Authors: Nahid, F. A.; Chowdhury, H. M.; Jahangir, M. N. &nbsp;·&nbsp; <em>Journal of Research in Physics and Applied Sciences</em>, 2(2), pp. 1–13</div>
+        <div class="pub-desc">Developed a hybrid CLSTM neural network for 30-minute-ahead solar radiation forecasting. The 1D CNN component extracts spatial/temporal features while LSTM handles long-term dependencies. Trained on 2 years of irradiance, temperature, and humidity data. The CLSTM outperforms standalone RNN and CNN models on MAE, RMSE, and MAPE metrics.</div>
+        <a class="pub-doi" href="https://doi.org/10.5281/zenodo.3768721" target="_blank"><i class="fa fa-arrow-up-right-from-square"></i> DOI: 10.5281/zenodo.3768721</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section">
+    <div class="section-label">Career</div>
+    <div class="section-title">Professional Experience</div>
+    <div class="fade-in">
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Client Support Specialist</div>
+            <div class="exp-company"><i class="fa fa-building" style="color:var(--accent2);margin-right:6px;"></i>Radiant Data Systems Ltd., Dhaka, Bangladesh</div>
+          </div>
+          <span class="exp-date">Feb 2024 – Aug 2025</span>
+        </div>
+        <ul class="exp-list">
+          <li>Resolved 350+ client cases, validated 1,100+ payments, and processed 1,500+ re-schedule submissions with full accuracy and compliance.</li>
+          <li>Analyzed client feedback data to identify root causes, contributing to improved service quality and operational efficiency across departments.</li>
+          <li>Managed credentials and regulatory compliance data with strong attention to detail across complex healthcare datasets.</li>
+          <li>Produced weekly workload dashboards for senior management to support data-driven decision-making and resource allocation.</li>
+        </ul>
+      </div>
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Credentials Specialist</div>
+            <div class="exp-company"><i class="fa fa-building" style="color:var(--accent2);margin-right:6px;"></i>Radiant Data Systems Ltd., Dhaka, Bangladesh</div>
+          </div>
+          <span class="exp-date">May 2022 – Jan 2024</span>
+        </div>
+        <ul class="exp-list">
+          <li>Promoted to Client Support Specialist within tenure for outstanding productivity, accuracy, and punctuality.</li>
+          <li>Served 550+ healthcare professionals in managing their professional credentials, ensuring timely placement of qualified medical staff.</li>
+          <li>Verified licenses, certifications, coordinated background checks and compliance documentation with 99% accuracy.</li>
+        </ul>
+      </div>
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Data Artist</div>
+            <div class="exp-company"><i class="fa fa-building" style="color:var(--accent2);margin-right:6px;"></i>Catalyst Solutions Ltd., Dhaka, Bangladesh</div>
+          </div>
+          <span class="exp-date">July 2021 – March 2022</span>
+        </div>
+        <ul class="exp-list">
+          <li>Conducted research and analysis for market data covering Fortune 500 companies across multiple industry verticals.</li>
+          <li>Developed expertise in Excel-based data processing, reporting, and visualization for executive-level reporting deliverables.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="section">
+    <div class="section-label">Lifelong Learning</div>
+    <div class="section-title">Learning Gallery</div>
+
+    <div class="gallery-filters" id="filterBtns">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="excel">Excel</button>
+      <button class="filter-btn" data-filter="programming">Programming</button>
+      <button class="filter-btn" data-filter="powerbi">Power BI</button>
+      <button class="filter-btn" data-filter="ml">Machine Learning</button>
+      <button class="filter-btn" data-filter="tableau">Tableau</button>
+      <button class="filter-btn" data-filter="academics">Academics</button>
+      <button class="filter-btn" data-filter="other">Others</button>
+    </div>
+
+    <div class="gallery-grid fade-in" id="galleryGrid">
+      <!-- items injected by JS -->
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <div class="section-label">Portfolio</div>
+    <div class="section-title">Projects</div>
+    <div class="projects-grid fade-in">
+      <div class="proj-card">
+        <div class="proj-banner pb-ml">
+          <i class="fa fa-robot"></i>
+          <span class="proj-tag">Python · ML</span>
+        </div>
+        <div class="proj-body">
+          <h4>Machine Learning for Credit Card Risk Prediction</h4>
+          <p>Developed a binary classification model using applicants' demographics and credit history to predict loan default risk. Implemented Random Forest, Logistic Regression, and SVM with feature engineering and class imbalance handling. Random Forest achieved ROC AUC 0.81, Recall 0.37, and 96.24% accuracy.</p>
+          <div class="proj-footer">
+            <span class="proj-tool">Python · Scikit-learn</span>
+            <a href="https://github.com/Mohammad-Nayeem-Jahangir/Credit-Card-Approval-Prediction-using-Machine-Learning/blob/main/Project_Credit_Card.ipynb" class="proj-link" target="_blank"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-banner pb-healthcare">
+          <i class="fa fa-hospital"></i>
+          <span class="proj-tag">Python · ML</span>
+        </div>
+        <div class="proj-body">
+          <h4>Healthcare Admission Cost Analysis &amp; Prediction</h4>
+          <p>End-to-end healthcare analytics applying data cleaning, exploratory analysis, patient segmentation (K-Means Clustering), and Random Forest to predict patient test results. Achieved 88% predictive performance, identified high-cost patient segments, and revealed condition-driven admission patterns.</p>
+          <div class="proj-footer">
+            <span class="proj-tool">Python · K-Means · RF</span>
+            <a href="https://github.com/Mohammad-Nayeem-Jahangir/Healthcare-Admissions-Cost-Analytics-Prediction/blob/main/Medical%20Project.ipynb" class="proj-link" target="_blank"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-banner pb-titanic">
+          <i class="fa fa-ship"></i>
+          <span class="proj-tag">Python</span>
+        </div>
+        <div class="proj-body">
+          <h4>Titanic Dataset Analysis (Python)</h4>
+          <p>Analyzed 10,000+ records from Kaggle. Performed comprehensive exploratory data analysis (EDA), handled missing values, and applied data manipulation using Pandas to derive meaningful survival patterns and statistical insights.</p>
+          <div class="proj-footer">
+            <span class="proj-tool">Python · Pandas · EDA</span>
+            <a href="https://github.com/Mohammad-Nayeem-Jahangir/Python-Prodigy/blob/main/Titanic%20Dataset%20Analysis%20Using%20Python.ipynb" class="proj-link" target="_blank"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-banner pb-r">
+          <i class="fa fa-code"></i>
+          <span class="proj-tag">R</span>
+        </div>
+        <div class="proj-body">
+          <h4>Titanic Dataset Analysis (R Programming)</h4>
+          <p>Replicated and extended the Titanic analysis using R. Applied dplyr for data manipulation, handled missing values, performed data summarization, and built statistical models to explore survival factors in the 10,000-record dataset.</p>
+          <div class="proj-footer">
+            <span class="proj-tool">R · dplyr · ggplot2</span>
+            <a href="https://github.com/Mohammad-Nayeem-Jahangir/R-programming/blob/main/Assignment_titanic_Nayeem.R" class="proj-link" target="_blank"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-banner pb-tableau">
+          <i class="fa fa-chart-bar"></i>
+          <span class="proj-tag">Tableau</span>
+        </div>
+        <div class="proj-body">
+          <h4>Customer Analysis Dashboard</h4>
+          <p>Built a comprehensive Tableau dashboard based on 2.8M demo records. Dashboard visualizes revenue across multiple dimensions, quantity-discount correlations, and customer behavior analytics for strategic business decision support.</p>
+          <div class="proj-footer">
+            <span class="proj-tool">Tableau</span>
+            <a href="https://public.tableau.com/app/profile/mohammad.jahangir6818/viz/Book1_17378148616980/Dashboard1" class="proj-link" target="_blank"><i class="fa fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-banner pb-netflix">
+          <i class="fa fa-film"></i>
+          <span class="proj-tag">Tableau</span>
+        </div>
+        <div class="proj-body">
+          <h4>Netflix Movie &amp; TV Series Analysis</h4>
+          <p>Created an interactive Tableau dashboard using 100K+ Kaggle records. Features map charts, bar charts, and bubble charts to visualize Netflix content distribution globally, genre breakdowns, and release trend analysis.</p>
+          <div class="proj-footer">
+            <span class="proj-tool">Tableau · Data Viz</span>
+            <a href="https://public.tableau.com/app/profile/mohammad.jahangir6818/viz/TableauProject_17418466384230/Dashboard1" class="proj-link" target="_blank"><i class="fa fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-banner pb-excel">
+          <i class="fa fa-table"></i>
+          <span class="proj-tag">Excel</span>
+        </div>
+        <div class="proj-body">
+          <h4>MS Excel Analytics Projects</h4>
+          <p>Medical cost prediction using correlation matrix, scatter plots, and box plots. Missing value handling via imputation and perturbation. Time-series analysis and forecasting using Holt-Winter's exponential smoothing with seasonality modeling.</p>
+          <div class="proj-footer">
+            <span class="proj-tool">MS Excel · Statistics</span>
+            <a href="#" class="proj-link"><i class="fa fa-chart-line"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements" class="section">
+    <div class="section-label">Recognition</div>
+    <div class="section-title">Achievements</div>
+    <div class="ach-grid fade-in">
+      <div class="ach-card">
+        <div class="ach-icon gold"><i class="fa fa-arrow-up"></i></div>
+        <div class="ach-text">
+          <h4>Promoted to Client Support Specialist</h4>
+          <div class="ach-org">Radiant Data Systems Ltd. · January 2024</div>
+          <p>Recognized for consistent excellence in productivity, accuracy, and punctuality. Promoted from Credentials Specialist within the organization for outstanding performance in healthcare data operations.</p>
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon gold"><i class="fa fa-star"></i></div>
+        <div class="ach-text">
+          <h4>Employee of the Month</h4>
+          <div class="ach-org">Radiant Data Systems Ltd. · August 2023</div>
+          <p>Awarded Employee of the Month in recognition of exceptional performance, contribution to team efficiency, and dedication to delivering high-quality results in a fast-paced healthcare data environment.</p>
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon green"><i class="fa fa-plane"></i></div>
+        <div class="ach-text">
+          <h4>HUMAP Exchange Scholarship</h4>
+          <div class="ach-org">University of Hyogo, Japan · July 2019</div>
+          <p>Awarded the HUMAP (Hyogo University and Municipalities for Academic Partnership) Exchange Scholarship for outstanding academic performance, enabling international research experience at the University of Hyogo, Japan.</p>
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-icon"><i class="fa fa-book-open"></i></div>
+        <div class="ach-text">
+          <h4>Wiley Book Chapter Author</h4>
+          <div class="ach-org">Wiley Publications · 2025</div>
+          <p>Co-authored two peer-reviewed book chapters published in Wiley's <em>Forecasting in Smart Grids</em>, covering machine learning for electricity demand forecasting and evaluation metrics for renewable energy prediction systems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="section-label">Get In Touch</div>
+    <div class="section-title">Contact</div>
+    <div class="contact-grid fade-in">
+      <a class="contact-card" href="https://wa.me/8801706419736" target="_blank">
+        <div class="contact-icon ci-green"><i class="fab fa-whatsapp"></i></div>
+        <div class="contact-info">
+          <h4>WhatsApp</h4>
+          <p>(+880) 1706419736</p>
+        </div>
+      </a>
+      <a class="contact-card" href="mailto:nayeemjahangir55@gmail.com">
+        <div class="contact-icon ci-red"><i class="fab fa-google"></i></div>
+        <div class="contact-info">
+          <h4>Gmail</h4>
+          <p>nayeemjahangir55@gmail.com</p>
+        </div>
+      </a>
+      <a class="contact-card" href="https://www.linkedin.com/in/mohammad-nayeem-jahangir/" target="_blank">
+        <div class="contact-icon ci-blue"><i class="fab fa-linkedin-in"></i></div>
+        <div class="contact-info">
+          <h4>LinkedIn</h4>
+          <p>mohammad-nayeem-jahangir</p>
+        </div>
+      </a>
+      <a class="contact-card" href="https://github.com/Mohammad-Nayeem-Jahangir" target="_blank">
+        <div class="contact-icon ci-dark"><i class="fab fa-github"></i></div>
+        <div class="contact-info">
+          <h4>GitHub</h4>
+          <p>Mohammad-Nayeem-Jahangir</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Mohammad Nayeem Jahangir · Designed with precision and purpose</p>
+  </footer>
+</main>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <div class="lightbox-content" id="lbContent">
+    <div class="lb-header">
+      <div><h3 id="lbTitle"></h3><p id="lbSub"></p></div>
+      <button class="lb-close" onclick="closeLightboxBtn()"><i class="fa fa-times"></i></button>
+    </div>
+    <div class="lb-body">
+      <div class="lb-icon-big" id="lbIcon"></div>
+      <div class="lb-text">
+        <h4 id="lbOrg"></h4>
+        <p id="lbDesc"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ===== GALLERY DATA =====
+const galleryItems = [
+  { cat:'other', title:'HIPAA Compliance II', sub:'HIPAA', year:'2025', icon:'fa-shield-halved', color:'gt-hipaa', desc:'HIPAA compliance certification for healthcare data operations, covering privacy and security standards.' },
+  { cat:'other', title:'HIPAA Awareness', sub:'Business Associates', year:'2025', icon:'fa-shield-halved', color:'gt-hipaa', desc:'HIPAA Awareness for Business Associates — covering patient data protection, privacy rules, and compliance obligations.' },
+  { cat:'academics', title:'Post-Graduate Diploma', sub:'Data Science & Business Analytics', year:'2025', icon:'fa-graduation-cap', color:'gt-academics', desc:'Post Graduate Diploma in Data Science & Business Analytics from Academy of Business Professionals, Dhaka.' },
+  { cat:'other', title:'AI Masterclass', sub:'AI Masterclass 2025', year:'2025', icon:'fa-robot', color:'gt-other', desc:'AI Masterclass certificate — covering modern AI concepts, large language models, and practical applications.' },
+  { cat:'programming', title:'Introduction to SQL', sub:'SQL Fundamentals', year:'2025', icon:'fa-database', color:'gt-sql', desc:'Introduction to SQL — covering database querying, joins, aggregations, and data manipulation fundamentals.' },
+  { cat:'tableau', title:'Tableau Certificate', sub:'Tableau 2025', year:'2025', icon:'fa-chart-bar', color:'gt-tableau', desc:'Tableau certification covering dashboard design, calculated fields, data blending, and interactive visualizations.' },
+  { cat:'programming', title:'Python Fundamentals', sub:'Python and Fundamentals 2024', year:'2024', icon:'fab fa-python', color:'gt-python', desc:'Python programming fundamentals including data structures, functions, libraries, and scripting for data analysis.' },
+  { cat:'programming', title:'Python for Data Science', sub:'Python 2024', year:'2024', icon:'fab fa-python', color:'gt-python', desc:'Applied Python for Data Science — NumPy, Pandas, Matplotlib, and Seaborn for data manipulation and visualization.' },
+  { cat:'excel', title:'Learning Excel', sub:'MS Excel 2024', year:'2024', icon:'fa-table', color:'gt-excel', desc:'Comprehensive Excel training covering advanced formulas, pivot tables, charts, data validation, and Power Query.' },
+  { cat:'other', title:'HIPAA Fundamentals', sub:'Business Associates', year:'2024', icon:'fa-shield-halved', color:'gt-hipaa', desc:'HIPAA Fundamentals for Business Associates — foundational training on privacy, security, and compliance requirements.' },
+  { cat:'other', title:'Managing Projects', sub:'with Microsoft Tools', year:'2024', icon:'fa-diagram-project', color:'gt-other', desc:'Managing Projects with Microsoft — Teams, Planner, and SharePoint for efficient project coordination and tracking.' },
+  { cat:'other', title:'Root Cause Analysis', sub:'RCA Methodologies 2024', year:'2024', icon:'fa-magnifying-glass', color:'gt-other', desc:'Root Cause Analysis training — applying 5-Why, fishbone diagrams, and systematic problem-solving techniques.' },
+  { cat:'powerbi', title:'Power BI Essential', sub:'Power BI Training 2023', year:'2023', icon:'fa-chart-pie', color:'gt-powerbi', desc:'Power BI Essential Training — DAX formulas, data modeling, interactive dashboards, and business intelligence reporting.' },
+  { cat:'other', title:'Lean Six Sigma', sub:'Process Improvement 2023', year:'2023', icon:'fa-gear', color:'gt-other', desc:'Lean Six Sigma certification covering DMAIC methodology, waste reduction, and process optimization techniques.' },
+  { cat:'other', title:'Leadership Mindsets', sub:'Leadership 2023', year:'2023', icon:'fa-users', color:'gt-other', desc:'Leadership Mindsets program — developing strategic thinking, team leadership, and organizational influence skills.' },
+  { cat:'other', title:'Quality Management', sub:'QM Systems 2023', year:'2023', icon:'fa-award', color:'gt-other', desc:'Quality Management certification covering ISO standards, continuous improvement, and quality assurance frameworks.' },
+  { cat:'other', title:'Time Management', sub:'Efficient TM 2023', year:'2023', icon:'fa-clock', color:'gt-other', desc:'Efficient Time Management — prioritization frameworks, productivity systems, and stress-reduction techniques.' },
+  { cat:'excel', title:'Excel Data Analytics', sub:'Excel 2022', year:'2022', icon:'fa-chart-line', color:'gt-excel', desc:'Excel Managing and Analyzing Data — statistical analysis, data cleaning, scenario modeling, and advanced charting.' },
+  { cat:'ml', title:'Machine Learning', sub:'ML Fundamentals 2022', year:'2022', icon:'fa-brain', color:'gt-ml', desc:'Machine Learning certificate covering supervised/unsupervised learning, model evaluation, and feature engineering.' },
+  { cat:'other', title:'Customer Service', sub:'CS Excellence 2022', year:'2022', icon:'fa-headset', color:'gt-other', desc:'Customer Service Excellence — communication skills, conflict resolution, client relationship management.' },
+  { cat:'other', title:'AMN Certificate', sub:'Healthcare Credentialing', year:'2022', icon:'fa-hospital', color:'gt-other', desc:'AMN Healthcare credentialing specialist certification for healthcare professional placement and compliance.' },
+  { cat:'ml', title:'Udemy — ML & AI', sub:'Machine Learning & AI 2021', year:'2021', icon:'fa-robot', color:'gt-ml', desc:'Comprehensive Udemy Machine Learning & AI course covering neural networks, deep learning, NLP, and computer vision.' },
+  { cat:'ml', title:'Machine Learning', sub:'ML 2020', year:'2020', icon:'fa-network-wired', color:'gt-ml', desc:'Machine Learning fundamentals — linear models, decision trees, random forests, SVMs, and practical implementation.' },
+  { cat:'ml', title:'Machine Learning', sub:'ML Foundations', year:'2019', icon:'fa-chart-area', color:'gt-ml', desc:'Early machine learning foundations course, establishing the theoretical and practical basis for later advanced studies.' },
+];
+
+function renderGallery(filter) {
+  const grid = document.getElementById('galleryGrid');
+  const items = filter === 'all' ? galleryItems : galleryItems.filter(i => i.cat === filter);
+  grid.innerHTML = items.map((item, idx) => `
+    <div class="gallery-item" onclick="openLightbox(${galleryItems.indexOf(item)})">
+      <div class="gallery-thumb ${item.color}">
+        <div class="cert-badge"><i class="${item.icon.startsWith('fab') ? item.icon : 'fa '+item.icon}"></i></div>
+        <span class="cert-year">${item.year}</span>
+      </div>
+      <div class="gallery-info">
+        <h4>${item.title}</h4>
+        <p>${item.sub}</p>
+      </div>
+    </div>
+  `).join('');
+}
+
+renderGallery('all');
+
+document.getElementById('filterBtns').addEventListener('click', e => {
+  if (!e.target.classList.contains('filter-btn')) return;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  e.target.classList.add('active');
+  renderGallery(e.target.dataset.filter);
+});
+
+function openLightbox(idx) {
+  const item = galleryItems[idx];
+  document.getElementById('lbTitle').textContent = item.title;
+  document.getElementById('lbSub').textContent = item.sub;
+  const icon = document.getElementById('lbIcon');
+  icon.innerHTML = `<i class="${item.icon.startsWith('fab') ? item.icon : 'fa '+item.icon}" style="font-size:28px;color:#fff;"></i>`;
+  icon.className = `lb-icon-big ${item.color}`;
+  document.getElementById('lbOrg').textContent = `Category: ${item.cat.charAt(0).toUpperCase()+item.cat.slice(1)} · Year: ${item.year}`;
+  document.getElementById('lbDesc').textContent = item.desc;
+  document.getElementById('lightbox').classList.add('open');
+}
+function closeLightbox(e) {
+  if (e.target === document.getElementById('lightbox')) document.getElementById('lightbox').classList.remove('open');
+}
+function closeLightboxBtn() {
+  document.getElementById('lightbox').classList.remove('open');
+}
+
+// ===== SIDEBAR =====
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+}
+function setActive(el) {
+  document.querySelectorAll('#sidebar nav a').forEach(a => a.classList.remove('active'));
+  el.classList.add('active');
+  if (window.innerWidth <= 768) document.getElementById('sidebar').classList.remove('open');
+}
+
+// ===== SCROLL SPY =====
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('#sidebar nav a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 120) current = s.id;
+  });
+  navLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#'+current);
+  });
+});
+
+// ===== FADE IN =====
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
