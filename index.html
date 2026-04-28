@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -192,9 +191,22 @@ body {
 .hero-bg {
   position: absolute;
   inset: 0;
+  z-index: 1;
   background-image:
     url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231a3a5c' fill-opacity='0.03'%3E%3Cpath d='M0 0h40v40H0V0zm40 40h40v40H40V40zm0-40h2l-2 2V0zm0 4l4-4h2l-6 6V4zm0 4l8-8h2L40 10V8zm0 4L52 0h2L40 14v-2zm0 4L56 0h2L40 18v-2zm0 4L60 0h2L40 22v-2zm0 4L64 0h2L40 26v-2zm0 4L68 0h2L40 30v-2zm0 4L72 0h2L40 34v-2zm0 4L76 0h2l-2 2-34 34v-2zm4 4L80 0h2L44 42l-2-2zm4 0L80 4v2L46 42l-2-2zm4 0L80 8v2L50 42l-2-2zm4 0L80 12v2L54 42l-2-2zm4 0L80 16v2L58 42l-2-2zm4 0L80 20v2L62 42l-2-2zm4 0L80 24v2L66 42l-2-2zm4 0L80 28v2L70 42l-2-2zm4 0L80 32v2L74 42l-2-2zm4 0L80 36v2L78 42l-2-2zm4 0L80 40v2l-2-2zm-2 2L80 42v2l-4-4zm0 4L80 46v2l-8-8zm0 4L80 50v2l-12-12zm0 4L80 54v2L56 44l2-2zm0 4L80 58v2L52 48l2-2zm0 4L80 62v2L48 52l2-2zm0 4L80 66v2L44 56l2-2zm0 4L80 70v2L40 60l2-2zm0 4L80 74v2L36 64l2-2zm0 4L80 78v2L32 68l2-2zm0 4l4 4L80 80l-28-28 2-2zm-4 4l4 4L80 80H68L36 76l2-2zm-4 4l4 4 8 8H52L32 80l2-2zm-4 4l4 4 4 4H36L28 84v-4zm-4 4l4 4H16L24 88v-4zm-4 4l4 4H0L20 92v-4zM0 20l4-4v2L2 20H0zm0 4l8-8v2L2 24H0zm0 4l12-12v2L2 28H0zm0 4l16-16v2L2 32H0zm0 4L20 8v2L2 36H0zm0 4L24 4v2L2 40H0zm0 4L28 0v2L2 44H0zm4 4L32 0h2L4 48l-2-2zm4 0L36 0h2L8 48l-2-2zm4 0L40 0h2L12 48l-2-2zm4 0L44 0h2L16 48l-2-2zm4 0L48 0h2L20 48l-2-2zm4 0L52 0h2L24 48l-2-2zm4 0L56 0h2L28 48l-2-2zm4 0L60 0h2L32 48l-2-2zm4 0L64 0h2L36 48l-2-2zm4 0L68 0h2L40 48l-2-2zm4 0L72 0h2L44 48l-2-2zm4 0L76 0h2L48 48l-2-2zm4 0L80 0h2L52 48l-2-2zm4 0L80 4v2L54 50l-2-2zm4 0L80 8v2L58 50l-2-2zm4 0L80 12v2L62 50l-2-2zm4 0L80 16v2L66 50l-2-2zm4 0L80 20v2L70 50l-2-2zm4 0L80 24v2L74 50l-2-2zm4 0L80 28v2L78 50l-2-2zm4 0L80 32v2l-2 2-2-2zm0 4L80 36v2l-6 6-2-2zm0 4L80 40v2l-10 10-2-2zm0 4L80 44v2l-14 14-2-2zm0 4L80 48v2L58 66l-2-2zm0 4L80 52v2L54 70l-2-2zm0 4L80 56v2L50 74l-2-2zm0 4L80 60v2L46 78l-2-2zm0 4L80 64v2L42 82l-2-2zm0 4L80 68v2L38 86l-2-2zm0 4L80 72v2L34 90l-2-2zm0 4L80 76v2L30 94l-2-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   opacity: 0.5;
+}
+
+  .hero-bg-img {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://raw.githubusercontent.com/Mohammad-Nayeem-Jahangir/Nayeem-Jahangir-portfolio/main/Files/cjYJf.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  opacity: 0.12;
+  z-index: 0;
+  filter: grayscale(15%);
 }
 
 .hero-inner {
@@ -955,6 +967,7 @@ footer {
 
   <!-- HOME -->
   <section id="home" class="section">
+    <div class="hero-bg-img"></div>
     <div class="hero-bg"></div>
     <div class="hero-inner">
       <div class="hero-top fade-in">
