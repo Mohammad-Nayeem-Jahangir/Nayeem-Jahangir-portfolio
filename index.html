@@ -1225,6 +1225,32 @@ footer {
     <div class="section-title">Projects</div>
     <div class="projects-grid fade-in">
       <div class="proj-card">
+  <div class="proj-banner" style="background: linear-gradient(135deg, #1a6b2f 0%, #2d9e4f 50%, #1a6b2f 100%);">
+    <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 64 64" fill="none">
+      <!-- Trophy cup body -->
+      <path d="M20 8 L44 8 L41 32 Q40 42 32 44 Q24 42 23 32 Z" fill="rgba(255,215,0,0.35)" stroke="rgba(255,215,0,0.85)" stroke-width="2"/>
+      <!-- Trophy handles -->
+      <path d="M20 12 Q10 12 10 22 Q10 30 20 30" stroke="rgba(255,215,0,0.85)" stroke-width="2" fill="none"/>
+      <path d="M44 12 Q54 12 54 22 Q54 30 44 30" stroke="rgba(255,215,0,0.85)" stroke-width="2" fill="none"/>
+      <!-- Trophy stem -->
+      <rect x="29" y="44" width="6" height="8" fill="rgba(255,215,0,0.35)" stroke="rgba(255,215,0,0.85)" stroke-width="2"/>
+      <!-- Trophy base -->
+      <rect x="22" y="52" width="20" height="4" rx="2" fill="rgba(255,215,0,0.35)" stroke="rgba(255,215,0,0.85)" stroke-width="2"/>
+      <!-- Star on trophy -->
+      <text x="32" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,215,0,0.9)">★</text>
+    </svg>
+    <span class="proj-tag">ML</span>
+  </div>
+  <div class="proj-body">
+    <h4>FIFA World Cup 2026: <strong>Champion Prediction using Machine Learning</strong></h4>
+    <p>Predicted the WC 2026 winner using an XGBoost & Random Forest ensemble trained on 1994–2022 data across 15 teams and 17 features — FIFA rankings, squad market value, xG/xGA, coach tenure & 2026 form. Monte Carlo simulation (10,000 runs) generates champion probability matrix with bias-corrected scoring.</p>
+    <div class="proj-footer">
+      <span class="proj-tool">Python · XGBoost · Scikit-learn · Monte Carlo</span>
+      <a href="https://github.com/Mohammad-Nayeem-Jahangir/FIFA-2026-World-Cup-Champion-Prediction" target="_blank" class="proj-link"><i class="fab fa-github"></i></a>
+    </div>
+  </div>
+</div>
+      <div class="proj-card">
   <div class="proj-banner pb-sql">
     <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 64 64" fill="none">
       <ellipse cx="32" cy="16" rx="22" ry="9" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.7)" stroke-width="2"/>
@@ -1237,7 +1263,7 @@ footer {
     <span class="proj-tag">SQL</span>
   </div>
   <div class="proj-body">
-    <h4>Delivery Operations Analysys: <strong>A business case study and analysis with SQL</strong></h4>
+    <h4>Delivery Operations Analysis: <strong>A business case study and analysis with SQL</strong></h4>
     <p>Solved 6 real-world business questions on a logistics delivery dataset using Google BigQuery. Covers SLA breach detection, repeat customer identification, city mismatch via string parsing, top-3 delivery men ranking with window functions, high-tenure return rate analysis, and city change investigation from order logs.</p>
     <div class="proj-footer">
       <span class="proj-tool">SQL · BigQuery · CTEs</span>
